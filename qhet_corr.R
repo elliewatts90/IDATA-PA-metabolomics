@@ -1,3 +1,6 @@
+# Script to test for hetergeneity between correlations using Cochran's Q- created May 2023 ELW
+# This script is out of data but q-het the function may be useful
+
 setwd("C:/Users/wattsel/OneDrive - National Institutes of Health/iDATA/Data/")
 
 # # Function to load packages 
