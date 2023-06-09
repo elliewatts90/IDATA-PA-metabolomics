@@ -1,3 +1,5 @@
+# Script creates correlation plots comparing different measurements and biospecimens - created May 2023 ELW
+
 rm(list=ls())
 
 setwd("C:/Users/wattsel/OneDrive - National Institutes of Health/iDATA/Data/")
@@ -36,7 +38,6 @@ corr_plots <- function(dat, x_name, y_name, sample, savefolder=NULL){
   
 }
 
-
 package_list<-c("dplyr", "data.table", "ggplot2", "stringr",  "tidyverse", "devEMF")
 install_load(package_list)
 
@@ -62,6 +63,7 @@ serum <- full_dta %>% filter(str_detect(sample, paste("serum"))) %>% dplyr::sele
 urine <- full_dta %>% filter(str_detect(sample, paste("urine"))) %>% dplyr::select(c(metabolite, estimate.2, p.value.2, act_var)) 
 fmv <- full_dta %>% filter(str_detect(sample, paste("fmv"))) %>% dplyr::select(c(metabolite, estimate.2, p.value.2, act_var)) 
 
+## CREATE PLOTS FOR EACH COMBINATION OF SAMPLES AND ACTIVITY TYPE ##
 # WITHIN SAMPLE TYPES
 for (x in dta_list){
   for (i in 1:(length(activity_var) - 1)){
@@ -77,19 +79,6 @@ for (x in dta_list){
     }
   }
 }
-
-# # remove duplicate files
-# setwd("C:/Users/wattsel/OneDrive - National Institutes of Health/iDATA/Results/correlations/plots/by_activity")
-# to_be_deleted <- list.files(pattern ="ap_methrs_ln_sd_ap_methrs_ln_sd|ag_soj3x_methrs_ln_sd_ag_soj3x_methrs_ln_sd|
-# a24_total_methrs_ln_sd_a24_total_methrs_ln_sd|a24_sed_hrs_ln_sd_a24_sed_hrs_ln_sd|
-# ag_soj3x_sed_hrs_ln_sd_ag_soj3x_sed_hrs_ln_sd|ap_sed_hrs_ln_sd_ap_sed_hrs_ln_sd|
-# a24_light_hrs_ln_sd_a24_light_hrs_ln_sd|ag_soj3x_light_hrs_ln_sd_ag_soj3x_light_hrs_ln_sd|
-# ap_light_hrs_ln_sd_ap_light_hrs_ln_sd|a24_mod_hrs_ln_sd_a24_mod_hrs_ln_sd|ag_soj3x_mod_hrs_ln_sd_ag_soj3x_mod_hrs_ln_sd|
-# a24_vig_hrs_ln_sd_a24_vig_hrs_ln_sd|
-# ag_soj3x_vig_hrs_ln_sd_ag_soj3x_vig_hrs_ln_sd|a24_mvpa_hrs_ln_sd_a24_mvpa_hrs_ln_sd|
-# ag_soj3x_mvpa_hrs_ln_sd_ag_soj3x_mvpa_hrs_ln_sd|ap_mvpa_hrs_ln_sd_ap_mvpa_hrs_ln_sd")
-# file.remove(to_be_deleted)
-
 
 # BETWEEN SAMPLE TYPES
 dta_list_plus <- c("urine",'fmv', "serum")
