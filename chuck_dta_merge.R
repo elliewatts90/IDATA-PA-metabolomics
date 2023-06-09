@@ -1,3 +1,6 @@
+# SCRIPT CREATED TO merge in iDATA data from the various data sources - last edited June 9th 2023
+# This creates separate serum, 24hr urine and FMV datasets 
+
 # EW MERGE IN CHUCK'S generated data
 ### IDATA MERGE DLW AND METABOLOMICS DATA 
 rm(list=ls())
