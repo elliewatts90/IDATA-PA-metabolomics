@@ -1,4 +1,5 @@
-#### CORRELATIONS OF INDIVIDUAL METABOLITES WITH RMR, TEE AND PHYS
+#### CORRELATIONS OF INDIVIDUAL METABOLITES WITH RMR, TEE AND PHYS - last edited June 9th 2023
+# Iterates over serum, 24hr ur and FMV sample datasets and each type of avtivity. 
 rm(list=ls())
 ## Set working directory
 setwd("C:/Users/wattsel/OneDrive - National Institutes of Health/iDATA/Data/")
