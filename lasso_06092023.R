@@ -1,3 +1,5 @@
+# Script to create LASSO models splitting by training and testing set and evaluate model performance - created JUNE 2023 by ELW
+
 setwd("C:/Users/wattsel/OneDrive - National Institutes of Health/iDATA/Data/")
 
 # # Function to load packages 
@@ -104,7 +106,7 @@ for (i in activity_var) {
   dat <- full_dat %>% filter(!is.na(!!rlang::sym(i))) 
   
   # drop participants with missing body comp data
-  dat <- dat %>% filter(!is.na(pct_fat_avg) & !is.na(ffmc_avg))
+  dat <- dat %>% filter(!is.na(pct_fat_avg) )
   
   dat$raceG<-as.numeric(dat$raceG)
   dat$sex<-as.numeric(dat$sex)
